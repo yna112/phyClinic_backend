@@ -13,6 +13,8 @@ public enum ErrMes {
 
     USER_NAME_OR_PASSWORD_INVALID("");
 
+
+
     private String msg;
 
     private ErrMes(String str){
