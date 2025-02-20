@@ -59,8 +59,6 @@ public class PatientController {
     public List<Patient> getAllPatients(@RequestHeader("Authorization") UUID token){
         System.out.println("GOOD GOOD GOOD");
         System.out.println("GOOD GOOD GOOD");
-        System.out.println("GOOD GOOD GOOD");
-        System.out.println("GOOD GOOD GOOD");
 
         System.out.println("TOKEN: "+token);
         return patientService.getAllPatient();
