@@ -1,6 +1,5 @@
 package com.yn.phyClinic.config;
 
-import org.springframework.ai.ollama.OllamaChatModel;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

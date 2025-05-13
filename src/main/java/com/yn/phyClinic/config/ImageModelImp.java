@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.ai.image.ImageModel;
-import org.springframework.ai.image.ImageOptions;
-import org.springframework.ai.image.ImagePrompt;
-import org.springframework.ai.image.ImageResponse;
+
 
 //
 //@AllArgsConstructor
