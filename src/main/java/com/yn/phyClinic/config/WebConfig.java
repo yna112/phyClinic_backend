@@ -20,5 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins("https://phy-clinic-frontend.vercel.app")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");
+        System.out.println("CORS config loaded for: https://phy-clinic-frontend.vercel.app");
+
     }
 }
