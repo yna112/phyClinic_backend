@@ -19,6 +19,8 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("api/patient")
+@CrossOrigin(origins = "*")  // אפשר לשים את ה-URL של ה-frontend במקום *
+
 public class PatientController {
 
     @Autowired
