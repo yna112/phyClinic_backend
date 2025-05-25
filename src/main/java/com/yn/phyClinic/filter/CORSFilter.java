@@ -22,16 +22,22 @@ public class CORSFilter implements Filter {
             throws IOException, ServletException {
 
         HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Origin", "https://phy-clinic-frontend-7d7088oqo-yairs-projects-aa1a1340.vercel.app");
-        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Methods", "GET, OPTIONS, HEAD, PUT, POST, DELETE");
-        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Headers", "authorization, Origin, Accept, x-auth-token, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Credentials", "true");
+        String origin = request.getHeader("Origin");
+        if ("https://phy-clinic-frontend.vercel.app".equals(origin) ||
+                "https://phyclinic-backend.onrender.com".equals(origin)) {
+            response.addHeader("Access-Control-Allow-Origin", origin);
+        } else {
+            response.addHeader("Access-Control-Allow-Origin", "");
+        }
 
-        HttpServletResponse resp = (HttpServletResponse) servletResponse;
+        response.addHeader("Access-Control-Allow-Methods", "GET, OPTIONS, HEAD, PUT, POST, DELETE");
+        response.addHeader("Access-Control-Allow-Headers", "authorization, Origin, Accept, x-auth-token, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+        response.addHeader("Access-Control-Allow-Credentials", "true");
 
         if (request.getMethod().equals("OPTIONS")) {
-            resp.setStatus(HttpServletResponse.SC_ACCEPTED);
+            response.setStatus(HttpServletResponse.SC_OK); // שנה ל-200 OK
             return;
         }
 
