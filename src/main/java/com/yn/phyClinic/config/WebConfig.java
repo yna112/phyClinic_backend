@@ -17,10 +17,9 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://phy-clinic-frontend.vercel.app")
+                .allowedOrigins("https://phy-clinic-frontend-7d7088oqo-yairs-projects-aa1a1340.vercel.app")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*");
-        System.out.println("CORS config loaded for: https://phy-clinic-frontend.vercel.appmjhmnmnmnmn");
-
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
