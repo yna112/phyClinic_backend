@@ -701,7 +701,7 @@ public class UseCase implements CommandLineRunner {
         System.out.println("========================================================================");
         System.out.println("========================================================================");
         System.out.println(patientService.getPatientById(1));
-
+        System.out.println( patientService.login("1234","1234"));
 
 
 

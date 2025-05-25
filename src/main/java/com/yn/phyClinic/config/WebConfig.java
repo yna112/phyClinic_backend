@@ -14,13 +14,12 @@ public class WebConfig implements WebMvcConfigurer {
                 .setCachePeriod(0);
     }
 
-    
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://phy-clinic-frontend-7d7088oqo-yairs-projects-aa1a1340.vercel.app")
+                .allowedOrigins("https://phy-clinic-frontend.vercel.app", "https://phyclinic-backend.onrender.com")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
+                .allowedHeaders("authorization", "Origin", "Accept", "x-auth-token", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers")
                 .allowCredentials(true);
     }
 }

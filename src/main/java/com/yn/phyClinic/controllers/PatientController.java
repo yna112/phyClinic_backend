@@ -1,6 +1,7 @@
 package com.yn.phyClinic.controllers;
 
 
+import com.yn.phyClinic.beans.LoginPat;
 import com.yn.phyClinic.beans.Patient;
 import com.yn.phyClinic.beans.PatientForm;
 import com.yn.phyClinic.beans.Visit;
@@ -35,8 +36,10 @@ public class PatientController {
 
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.CREATED)
-    public MyToken login(@RequestParam String userName, @RequestParam String password) throws MyPhysClinicException {
+    public MyToken login(@RequestBody LoginPat loginPat) throws MyPhysClinicException {
         UUID uuid=UUID.randomUUID();
+        String userName= loginPat.getUserName();
+        String password= loginPat.getPassword();;
         if(patientService.login(userName,password)){
             return MyToken.builder().token(uuid).userName(userName).build() ;
         }
