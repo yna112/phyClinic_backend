@@ -23,22 +23,18 @@ public class CORSFilter implements Filter {
 
         HttpServletRequest request = (HttpServletRequest) servletRequest;
 
-        // שנה את הכתובת למקור של הלקוח ב-Vercel
-        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Origin", "https://phy-clinic-frontend.vercel.app");
+        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Origin", "https://phy-clinic-frontend-7d7088oqo-yairs-projects-aa1a1340.vercel.app");
         ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Methods", "GET, OPTIONS, HEAD, PUT, POST, DELETE");
         ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Headers", "authorization, Origin, Accept, x-auth-token, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-        // הוסף תמיכה ב-credentials אם אתה צריך (למשל, עבור cookies או אימות)
         ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Credentials", "true");
 
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
-        // טפל בבקשת OPTIONS (חלק מתהליך ה-CORS preflight)
         if (request.getMethod().equals("OPTIONS")) {
             resp.setStatus(HttpServletResponse.SC_ACCEPTED);
             return;
         }
 
-        // המשך בשרשרת הפילטרים
         chain.doFilter(request, servletResponse);
     }
 
