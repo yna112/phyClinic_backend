@@ -20,7 +20,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("api/patient")
-@CrossOrigin(origins = "*")  // אפשר לשים את ה-URL של ה-frontend במקום *
+//@CrossOrigin(origins = "*")  // אפשר לשים את ה-URL של ה-frontend במקום *
 
 public class PatientController {
 
@@ -41,7 +41,10 @@ public class PatientController {
         String userName= loginPat.getUserName();
         String password= loginPat.getPassword();;
         if(patientService.login(userName,password)){
-            return MyToken.builder().token(uuid).userName(userName).build() ;
+            return MyToken.builder()
+                    .token(UUID.randomUUID())
+                    .userName(userName)
+                    .build() ;
         }
         throw new MyPhysClinicException(ErrMes.USER_NAME_OR_PASSWORD_INVALID);
 

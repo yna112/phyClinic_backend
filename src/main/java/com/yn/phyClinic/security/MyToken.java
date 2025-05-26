@@ -14,9 +14,6 @@ import java.util.UUID;
 @Data
 @Builder
 public class MyToken {
-
-
-    private UUID token = UUID.randomUUID();
+    private UUID token;
     private String userName;
-
 }
